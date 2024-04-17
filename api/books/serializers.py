@@ -12,7 +12,7 @@ class CommentChildSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('id', 'whom', 'parent', 'content', 'user', 'commented_at')
+        fields = ('id', 'whom', 'parent', 'content', 'user', 'commented_at', 'is_author')
 
     def create(self, validated_data):
         if validated_data.get("parent"):
@@ -45,7 +45,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ['id', 'user', 'reply_count', 'changed', 'commented_at', 'content', 'replies']
+        fields = ['id', 'user', 'reply_count', 'changed', 'commented_at', 'content', 'replies', 'is_author']
         extra_kwargs = {
             "user": {"read_only": True},
             "book": {"read_only": True},

@@ -7,7 +7,7 @@ from api.users.models import User
 
 
 class Book(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, db_default=uuid.uuid4)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     title = models.CharField(max_length=155, db_index=True, null=False, blank=False)
     cover = models.ImageField(upload_to='medias/book/covers/')
     description = models.TextField(null=False, blank=False)
